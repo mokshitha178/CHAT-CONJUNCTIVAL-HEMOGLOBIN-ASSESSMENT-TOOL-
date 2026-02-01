@@ -35,14 +35,6 @@ The system’s strength lies in its **modular pipeline**, ensuring only the most
 
 ---
 
-## 🖼️ Project Execution Flow
-
-The flow diagram illustrates the end-to-end execution, including the **critical feedback loop** where poor-quality images are filtered and the user is prompted to retake the shot.
-
-![Architecture.jpg](Assets/Architecture.jpg)
-
----
-
 ## 👁️ Image Preprocessing 
 
 This critical phase ensures image quality is maintained and standardized before analysis:
@@ -59,13 +51,9 @@ This model focuses on isolating the conjunctiva from surrounding noise (eyelashe
 
 The **U-Net** model uses a **ResNet-34 backbone** in the encoder path for powerful feature extraction and skip connections to maintain high-resolution spatial details, resulting in a precise conjunctiva mask.
 
-![Segmentation_Model](Assets/Segmentation_Model.png)
-
 ## 🎯 Step 2: Classification Model (MobileNetV3Large Fine-tuned)
 
 The segmented and resized conjunctiva image is classified by the **MobileNetV3-Large** model, chosen for its efficiency and transfer learning capabilities.
-
-![Classification_Model](Assets/Classification_Model.jpg)
 
 The pre-trained MobileNetV3-Large model is fine-tuned on the project’s clinical dataset to accurately predict one of the four anemia categories based on conjunctiva pallor characteristics.
 
@@ -79,15 +67,6 @@ The model’s performance was validated against real-time, clinically labeled da
 |----------------|---------------|----------------|---------------|
 | MobileNetV3 (Fine-tuned) | **94.75%** | 0.92 | 0.91 |
 
----
-
-### Confusion Matrix
-
-The confusion matrix provides clinical context for classification errors and demonstrates model reliability across all four classes.
-
-![Confusion_Matrix.jpg](Assets/Confusion_Matrix.jpg)
-
----
 
 ## ⚙️ Setup and Installation (How to Run)
 
